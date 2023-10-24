@@ -1,0 +1,734 @@
+@font-face {
+  font-family: 'League-Spartan';
+  src: url('./fonts/LeagueSpartan-Bold.otf') format('otf'),
+  font-weight: normal; /* Specify the font weight */
+  font-style: normal; /* Specify the font style (e.g., italic) */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0;
+  font-family: 'League-Spartan',sans-serif;
+}
+html,body{
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+
+  
+}
+body{
+  font-family: 'League-Spartan',sans-serif
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.cursordot{
+  width: 5px;
+  height: 5px;
+  background-color: #fff;
+}
+.cursor-outline{
+  width: 30px;
+  height: 30px;
+  border: 2px solid #fff ;
+}
+.cursordot,.cursor-outline{
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translate(-50% , -50%);
+  border-radius: 50%;
+  z-index: 9;
+  pointer-events: none;
+}
+
+a{
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: #000;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.logo img {
+  width: 45vh;
+}
+.logo-text {
+    color: #fff;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 800px) {
+  .logo img {
+  width: 130px;
+}
+}
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-weight: 500;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  font-size: 20px;
+}
+
+.nav__links li {
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: color 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: #c5f404;
+}
+
+.cta {
+  padding: 9px 25px;
+  background-color: rgb(20 27 28);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+}
+
+.cta:hover {
+  background-color: #c5f404;
+  color: #000;
+  transition: all 1s ease;
+}
+
+/* Mobile Nav */
+
+.menu {
+  display: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #24252a;
+  overflow-x: hidden;
+  transition: width 0.5s ease 0s;
+}
+
+.overlay--active {
+  width: 100%;
+}
+
+.overlay__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay a {
+  padding: 15px;
+  font-size: 36px;
+  display: block;
+  transition: color 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #0088a9;
+}
+.overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #edf0f1;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__links,
+  .cta {
+    display: none;
+  }
+  .menu {
+    display: initial;
+  }
+}
+
+.silder{
+  display: flex;
+  justify-content: center;
+}
+.silder h2{
+  position: relative;
+  font-size: 11vh;
+   color:#141414;
+}
+.slider span{
+  color: #fff;
+}
+.silder h2::before{
+  content: attr(data-text);
+  position: absolute;
+  color: #c5f404;
+  width: 350px;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 4px solid #fff;
+  animation: animate-text 8s linear infinite;
+  filter: drop-shadow(0 0 6px #c5f404) drop-shadow(0 0 45px #c5f404);
+}
+
+@keyframes animate-text
+{
+  0%, 10%, 100%{
+  width: 0;
+  }
+  70%,90%{
+  width: 100%;
+  }
+}
+
+.marquee{
+  margin: 50px 0px 50px 0px;
+  width: 100%;
+  padding: 10px 20px;
+  border-top: 1px solid #fff;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid #fff; 
+}
+.marquee h3 {
+  font-size: 94px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+.marquee-wrapper {
+   width: 100000px;
+   animation: marqueeAnimation 38s linear 0s infinite running;
+}
+.marquee h3 .marquee-title {
+   margin-right: 20px; float: left;
+}
+.bgtmarquee{
+   background-color: #000;
+}
+.text-stroke-black {
+    color: transparent;
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: #c5f404;
+}
+
+@keyframes marqueeAnimation {
+  100% {
+  transform: translateX(-4600px);
+}
+}
+
+.img-marquee-wrapper img{
+  width: 50vh;
+  margin: 10px 20px 20px 10px;
+  border: 10px double #c5f404;
+  border-radius: 40px 40px 10px 10px ;
+  filter: grayscale(100%);
+  transition: 2s ease;
+
+}
+.img-marquee-wrapper{
+  width: 100000px;
+  padding: 30px 0px 0px 0px;
+  animation: imgmarqueeAnimation 50s linear 0s infinite running;
+  animation-play-state: running;  animation-play-state: running;
+}
+.img-marquee-wrapper:hover{
+animation-play-state: paused;
+}
+.img-marquee-wrapper img:hover{
+  filter: grayscale(0%);
+  transform: scale(1.1);
+}
+.image-marquee{
+  overflow: hidden;
+  height: 60vh;
+}
+.image-marquee1{
+  overflow: hidden;
+  height: 30vh;
+}
+
+#show{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+   align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-image: url(../images/pattern.png);
+
+}
+
+#top-con{
+  position: absolute;
+  top: 12%;
+
+  text-align: center;
+}
+
+
+#top-con h1{
+  font-size: 5vw;
+    line-height: 10vh;
+}
+#bot-con{
+  position: absolute;
+  bottom: 10%;
+}
+#bot-con h1{
+  font-size: 5vw;
+}
+
+#botcchild p{
+  font-size: 2px;
+}
+.img{
+  width: 50%;
+  height: 40%;
+  background-color: #c5f404;
+}
+
+  
+#main{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+}
+
+
+.part-1{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  color: #fff;
+}
+.part-2{
+  width: 100%;
+  height: 100vh;
+  background-color: red;
+}
+
+.top-con{
+  position: absolute;
+  top: 1%;
+  text-align: center;
+
+  perspective: 800px;
+  perspective-origin: top;
+}
+.top-con h1{
+  font-size: 5vw;
+  line-height: 12vh;
+}
+.top-content{
+  transform: rotateX(0deg);
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.btm-con{
+  position: absolute;
+  bottom: 10%;
+  perspective: 800px;
+  perspective-origin: bottom;
+}
+.btm-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transform: rotateX(0deg);
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.btm-con h1{
+  font-size: 5vw;
+}
+.btm-con p{
+  font-size: 0.8vw;
+  width: 50%;
+}
+.img{
+  background-color: #000;
+  width: 50%;
+  height: 50%;
+  background-position: center;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.img video{
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  object-fit: cover;
+  transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+@media (max-width:500px){
+  .top-con{
+    top: 15%;
+  }
+  .top-con h1{
+    font-size: 11vw;
+    line-height: 10vw;
+  }
+  .btm-con h1{
+    font-size: 11vw;
+    line-height: 10vw;
+  }
+  .btm-con p{
+    width: 90%;
+    font-size: 2vw;
+  }
+  .btm-con{
+    bottom: 8%;
+  }
+
+}
+
+
+
+
+
+@keyframes imgmarqueeAnimation {
+  0% {
+  transform: translateX(-4600px);
+} 100% {
+  transform: translateX(0px);
+}
+}
+
+
+#About{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+#top{
+  position: absolute;
+  top: 0%;
+  width: 100%;
+  height: 50vh;
+  z-index: 9;
+  background-color: #000;
+  overflow: hidden;
+  border-radius: 0px 0px 60px 60px;
+}
+#center{
+  width: 100%;
+  height: 100vh;
+  background-color: #c5f404;
+}
+#bottom{
+  position: absolute;
+  bottom: 0%;
+  width: 100%;
+  height: 50vh;
+  background-color: #000;
+  overflow: hidden;
+border-radius: 60px 60px 0px 0px ;
+}
+
+#About h1{
+  font-size: 30vh;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+}
+
+
+#top-h{
+  bottom: 50%;
+}
+
+#bot-h{
+  top: -14% !important;
+}
+.about-me{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.about-me h2{
+  font-size: 65px;
+  margin: 10vh 0px 10px 0px;
+  font-weight: 700;
+  color: #000;
+  
+}
+.about-me p{
+  font-weight: 700;
+  font-size: 40px;
+  width: 100%;
+  padding: 0px 20vh;
+  color: #000;
+}
+.con{
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+.show{
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  overflow: hidden;
+  position: relative;
+}
+.textdiv{
+
+  width: 100%;
+  padding: 10px 20px;
+  border-top: 1px solid #fff;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid #fff; 
+}
+.textdiv h3 {
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+}
+.textdiv-wrapper {
+   width: 100000px;
+   animation: textdivAnimation 40s linear 0s infinite running;
+}
+.textdiv h3 .textdiv-title {
+   margin-right: 20px; float: left;
+}
+
+
+@keyframes textdivAnimation {
+  100% {
+  transform: translateX(-4600px);
+}
+}
+
+
+
+#section{
+    width: 100%;
+    min-height: 100%;
+    background-color: #000;
+    overflow: hidden;
+  }
+.p-2{
+  width: 100%;
+  height: 100vh;
+  margin: 50px 0px 0px 0px;
+
+}
+.strip{
+    width: 400%;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 1s;
+}
+.strip img{
+    width: 12vw;
+}
+.p-2 h1{
+  color: #fff;
+  font-size: 11vw;
+  font-family: 'League-Spartan',sans-serif;
+  line-height: 10vh;
+  font-weight: 700;
+}
+.p-2 h1 span{
+  color: transparent;
+  -webkit-text-stroke:1px #c5f404;
+}
+.strip:nth-child(2n){
+  margin-left: -100%;
+}
+
+
+
+
+
+.projects{
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: ceneter;
+    display: flex;
+    position: relative;
+  }
+  .projects h3{
+ font-size: 4vw;
+  margin-top: 50px;
+  font-weight: 700;
+
+  }
+  .img-wrap{
+    position:absolute;
+    top: 20%;
+    width: 50vw;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+  }
+  .img {
+    width: 50vh;
+    height: 50vh;
+    margin: 5px;
+  }
+  .img img{
+  filter: grayscale(80%);
+  width: 5vh;
+  height: 50vh;
+  transition:  all ease-in-out 0.3s;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  .active img{
+  width: 50vh;
+    height: 50vh;
+    filter: grayscale(0%);
+    border: 5px;
+    border-style: double;
+    border-color: #fff;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*responsive */
+@media only screen and (max-width: 1463px) {
+  .slider h2 {
+    font-size: 10px;
+  }
+
+}
+@media (max-width:1443px) {
+.slider h2 {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 1443px) {
+  .silder h2{
+  font-size: 3em;
+}
+}
+@media only screen and (max-width: 850px){
+.silder h2{
+    font-size: 30px;
+}.logo img {
+    width: 200px;
+}
+@media only screen and (max-width: 544px){
+.silder h2{
+    font-size: 25px;
+}}
+@media only screen and (max-width: 458px){
+.silder h2{
+    font-size: 20px;
+}}
+@media only screen and (max-width: 373px){
+.silder h2{
+    font-size: 15px;
+}}
+@media only screen and (max-width: 290px){
+.silder h2{
+    font-size: 10px;
+}}
+
+@media (max-width:992px) {
+  .marquee h3{
+  font-size: 60px;
+}
+}
+
+@media (max-width:549px) {
+  .marquee h3{
+  font-size: 35px;
+}
+}
+
+body::-webkit-scrollbar {
+    width: 12px; /* You can adjust the width */
+}
+
+/* Style the scrollbar thumb (the draggable part) */
+body::-webkit-scrollbar-thumb {
+    background: #888; /* Change this to your desired color */
+}
+
+/* Style the scrollbar track on hover */
+body::-webkit-scrollbar-thumb:hover {
+    background: #ccc; /* Change this to your desired hover color */
+}
+
