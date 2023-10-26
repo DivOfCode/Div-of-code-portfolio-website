@@ -1,0 +1,107 @@
+/*responsive */
+
+
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__links,
+  .cta {
+    display: none;
+  }
+  .menu {
+    display: initial;
+  }
+}
+
+
+@media (max-width:500px){
+  .top-con{
+    top: 15%;
+  }
+  .top-con h1{
+    font-size: 11vw;
+    line-height: 10vw;
+  }
+  .btm-con h1{
+    font-size: 11vw;
+    line-height: 10vw;
+  }
+  .btm-con p{
+    width: 90%;
+    font-size: 2vw;
+  }
+  .btm-con{
+    bottom: 8%;
+  }
+
+}
+
+
+@media only screen and (max-width: 800px) {
+  .logo img {
+  width: 130px;
+}
+}
+
+
+
+@media only screen and (max-width: 1463px) {
+  .slider h2 {
+    font-size: 10px;
+  }
+
+}
+@media (max-width:1443px) {
+.slider h2 {
+    font-size: 10px;
+  }
+}
+@media only screen and (max-width: 1443px) {
+  .silder h2{
+  font-size: 3em;
+}
+}
+@media only screen and (max-width: 850px){
+.silder h2{
+    font-size: 30px;
+}.logo img {
+    width: 200px;
+}
+@media only screen and (max-width: 544px){
+.silder h2{
+    font-size: 25px;
+}}
+@media only screen and (max-width: 458px){
+.silder h2{
+    font-size: 20px;
+}}
+@media only screen and (max-width: 373px){
+.silder h2{
+    font-size: 15px;
+}}
+@media only screen and (max-width: 290px){
+.silder h2{
+    font-size: 10px;
+}}
+
+@media (max-width:992px) {
+  .marquee h3{
+  font-size: 60px;
+}
+}
+
+@media (max-width:549px) {
+  .marquee h3{
+  font-size: 35px;
+}
+}
