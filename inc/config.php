@@ -1,0 +1,3 @@
+<?php 
+$imgpath = 'images/projects/';
+?>

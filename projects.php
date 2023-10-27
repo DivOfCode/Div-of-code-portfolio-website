@@ -1,51 +1,16 @@
 <h3>PROJECTS</h3>
+<?php
+$asprojects = GetProjects($projects);
+$pc = count($asprojects);
+if ($pc == 0) {
+	echo '<h1>No Projects Found!!</h1>';
+}else {
+?>
 	<div class="img-wrap">
+		<?php for ($i = 0; $i < $pc ; $i++) { ?>
 	<div class="img active">
-		<img src="images/projects/divofcodelogo.gif" >
+		<img src=" images/projects/<?php echo $projects[$i]['img']; ?>"  alt="<?php echo $projects[$i]['title']; ?>">
 	</div>
-	<div class="img">
-		<img src="images/projects/1.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/2.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/3.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/logo3.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/4.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/5.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/logo1.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/6.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/7.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/8.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/9.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/logo4.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/10.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/11.jpg" >
-	</div>
-	<div class="img">
-		<img src="images/projects/logo2.jpg" >
-	</div>
+<?php } ?>
 </div>
+<?php } ?>
