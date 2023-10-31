@@ -84,11 +84,23 @@
 @media only screen and (max-width: 458px){
 .silder h2{
     font-size: 20px;
-}}
+}
+.rounded-text span{
+          font-size: 10px;
+        transform-origin: 0 50px;
+        }
+}
 @media only screen and (max-width: 373px){
 .silder h2{
     font-size: 15px;
-}}
+}
+.rounded-text span{
+          font-size: 10px;
+        transform-origin: 0 50px;
+        }
+
+
+}
 @media only screen and (max-width: 290px){
 .silder h2{
     font-size: 10px;
@@ -105,3 +117,6 @@
   font-size: 35px;
 }
 }
+
+
+
