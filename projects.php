@@ -8,7 +8,7 @@ if ($pc == 0) {
 ?>
 	<div class="img-wrap">
 		<?php for ($i = 0; $i < $pc ; $i++) { ?>
-	<div class="img active">
+	<div class="img <?php echo ($i == 0) ? 'active' : ''; ?>">
 		<img src=" images/projects/<?php echo $projects[$i]['img']; ?>"  alt="<?php echo $projects[$i]['title']; ?>">
 	</div>
 <?php } ?>

@@ -22,7 +22,7 @@
     background-size: 30px 30px;
     background-position: center;
     position: relative;
-     background-image:
+    background-image:
     linear-gradient(to right, #262626 1px, transparent 1px),
     linear-gradient(to bottom, #262626 1px, transparent 1px);
   }
@@ -69,30 +69,33 @@
     margin: 8vh 0px 0px 8vh;
   }
 
-canvas  {
-	height: 100vh;
-    width: 100%;
-    border: 1px solid #c3f104;
-    display: none;
-    position: absolute;
-    top: 0%;
-  }
-  #scorespan span{
-  	display: none;
-  }
+  canvas  {
+   height: 100vh;
+   width: 100%;
+   border: 1px solid #c3f104;
+   display: none;
+   position: absolute;
+   top: 0%;
+ }
+ #scorespan span{
+   display: none;
+ }
 
-   .blink {
+ .blink {
   animation:blink 2s infinite linear;
   opacity:.4
-    }
-    @keyframes blink {
-    50% {
+}
+@keyframes blink {
+  50% {
     opacity:.1
   }
-    }
-    .game{
-        color: #c3f104;
-    }
+}
+.game{
+  color: #c3f104;
+}
+.s-links img{
+        width: 50px;
+      }
 
 </style>
 
@@ -128,15 +131,15 @@ canvas  {
           </div>
           <div class="discrp">
             <h2 class="disch1">Open the door to communication –<br> reach out and let's craft something amazing together!</h2>   
-    		<span class="game blink" id="startGame">Click to Start</span>
-    		<span class="game blink" id="score"></span>
+            <span class="game blink" id="startGame">Click to Start</span>
+            <span class="game blink" id="score"></span>
           </div>
         </div>
       </div>
     </div>
     <canvas id="gameCanvas"></canvas>
   </div>
-<script>
+  <script>
     const canvas = document.getElementById("gameCanvas");
     const scorespan = document.getElementById("score")
     const ctx = canvas.getContext("2d");
@@ -159,7 +162,7 @@ canvas  {
     let paused = false;
 
 
-   function drawSnake() {
+    function drawSnake() {
   ctx.globalCompositeOperation = "darken"; // Set the blend mode
 
   ctx.fillStyle = "white"; // Set the color to white
@@ -171,97 +174,97 @@ canvas  {
   // Reset the blend mode to "source-over" for other elements
   ctx.globalCompositeOperation = "source-over";
 }
-    function drawFood() {
-      ctx.fillStyle = "#c3f104";
-      ctx.fillRect(food.x * GRID_SIZE, food.y * GRID_SIZE, FOOD_SIZE, FOOD_SIZE);
-    }
+function drawFood() {
+  ctx.fillStyle = "#c3f104";
+  ctx.fillRect(food.x * GRID_SIZE, food.y * GRID_SIZE, FOOD_SIZE, FOOD_SIZE);
+}
 
-    function moveSnake() {
-      if (paused) return;
+function moveSnake() {
+  if (paused) return;
 
-      let head = { x: snake[0].x, y: snake[0].y };
-      switch (direction) {
-        case "up":
-          head.y -= 1;
-          break;
-        case "down":
-          head.y += 1;
-          break;
-        case "left":
-          head.x -= 1;
-          break;
-        case "right":
-          head.x += 1;
-          break;
-      }
+  let head = { x: snake[0].x, y: snake[0].y };
+  switch (direction) {
+  case "up":
+    head.y -= 1;
+    break;
+  case "down":
+    head.y += 1;
+    break;
+  case "left":
+    head.x -= 1;
+    break;
+  case "right":
+    head.x += 1;
+    break;
+  }
 
-      snake.unshift(head);
+  snake.unshift(head);
 
-      if (head.x === food.x && head.y === food.y) {
-        score += 1;
-        generateFood();
-        updateScore();
-      } else {
-        snake.pop();
-      }
-    }
+  if (head.x === food.x && head.y === food.y) {
+    score += 1;
+    generateFood();
+    updateScore();
+  } else {
+    snake.pop();
+  }
+}
 
-    function generateFood() {
-      food = {
-        x: Math.floor(Math.random() * (canvas.width / GRID_SIZE)),
-        y: Math.floor(Math.random() * (canvas.height / GRID_SIZE))
-      };
-    }
+function generateFood() {
+  food = {
+    x: Math.floor(Math.random() * (canvas.width / GRID_SIZE)),
+    y: Math.floor(Math.random() * (canvas.height / GRID_SIZE))
+  };
+}
 
-    function checkCollision() {
-      const head = snake[0];
-      if (
-        head.x < 0 || head.x >= canvas.width / GRID_SIZE ||
-        head.y < 0 || head.y >= canvas.height / GRID_SIZE ||
-        snake.slice(1).some((segment) => segment.x === head.x && segment.y === head.y)
-      ) {
-        clearInterval(gameLoopInterval);
-        gameOver();
-      }
-    }
+function checkCollision() {
+  const head = snake[0];
+  if (
+    head.x < 0 || head.x >= canvas.width / GRID_SIZE ||
+    head.y < 0 || head.y >= canvas.height / GRID_SIZE ||
+    snake.slice(1).some((segment) => segment.x === head.x && segment.y === head.y)
+    ) {
+    clearInterval(gameLoopInterval);
+  gameOver();
+}
+}
 
-    function gameOver() {
-      alert("Game Over! Your Score: " + score);
-      location.reload();
-    }
+function gameOver() {
+  alert("Game Over! Your Score: " + score);
+  location.reload();
+}
 
-    function updateScore() {
-      const scoreElement = document.getElementById("score");
-      scoreElement.innerText = " Score: " + score;
-    }
+function updateScore() {
+  const scoreElement = document.getElementById("score");
+  scoreElement.innerText = " Score: " + score;
+}
 
-    window.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowUp" && direction !== "down") {
-        direction = "up";
-      } else if (event.key === "ArrowDown" && direction !== "up") {
-        direction = "down";
-      } else if (event.key === "ArrowLeft" && direction !== "right") {
-        direction = "left";
-      } else if (event.key === "ArrowRight" && direction !== "left") {
-        direction = "right";
-      } else if (event.key === "p") {
-        paused = !paused;
-      }
-    });
+window.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowUp" && direction !== "down") {
+    direction = "up";
+  } else if (event.key === "ArrowDown" && direction !== "up") {
+    direction = "down";
+  } else if (event.key === "ArrowLeft" && direction !== "right") {
+    direction = "left";
+  } else if (event.key === "ArrowRight" && direction !== "left") {
+    direction = "right";
+  } else if (event.key === "p") {
+    paused = !paused;
+  }
+});
 
-    function gameLoop() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+function gameLoop() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      moveSnake();
-      checkCollision();
-      drawSnake();
-      drawFood();
-    }
+  moveSnake();
+  checkCollision();
+  drawSnake();
+  drawFood();
+}
 
-    let gameLoopInterval;
+let gameLoopInterval;
 
-    const startGame = document.getElementById("startGame");
-    startGame.addEventListener("click", () => {
+const startGame = document.getElementById("startGame");
+startGame.addEventListener("click", () => {
       canvas.style.display = "block"; // Display the canvas when clicked
 
       // Start the game loop

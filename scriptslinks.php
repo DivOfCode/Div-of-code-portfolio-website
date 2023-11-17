@@ -2,4 +2,5 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <script type="text/javascript" src="js/gsap.js"></script>
    <script type="text/javascript" src="js/main.js"></script>
+   <script type="text/javascript" src="js/game.js"></script>
    <script type="text/javascript" src="js/mobile.js"></script>

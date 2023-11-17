@@ -2,7 +2,7 @@
 
 
 
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 425px) {
   .overlay a {
     font-size: 20px;
   }
@@ -11,6 +11,20 @@
     top: 15px;
     right: 35px;
   }
+  #section1{
+    height: 100vh;
+  }
+  .rounded-text {
+  width: 46%;
+  height: 27%;
+}  .about-me h2 {
+  font-size: 18px;
+}.about-me p {
+   font-weight: 700;
+  font-size: 16px;
+  width: 100%;
+  padding: 0px 45px;
+}
 }
 
 @media only screen and (max-width: 800px) {
@@ -104,17 +118,30 @@
 @media only screen and (max-width: 290px){
 .silder h2{
     font-size: 10px;
-}}
+}
+}
 
 @media (max-width:992px) {
   .marquee h3{
   font-size: 60px;
 }
+ #section1{
+    height: 100vh;
+  }
+  .rounded-text {
+  width: 46%;
+  height: 27%;
 }
 
 @media (max-width:549px) {
   .marquee h3{
   font-size: 35px;
+}
+ #section1{
+    height: 100vh;
+  }
+  .about-me h2 {
+  font-size: 18px;
 }
 }
 
